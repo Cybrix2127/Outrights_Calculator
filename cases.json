@@ -1,0 +1,338 @@
+[
+  {
+    "id": 0,
+    "name": "Case 1",
+    "inputs": {
+      "effr": "5.25%",
+      "me": "25",
+      "qe": "0",
+      "ye": "0",
+      "meetings": {
+        "2026-01-28": "25",
+        "2026-03-18": "0",
+        "2026-04-29": "50",
+        "2026-06-17": "0",
+        "2026-07-29": "0",
+        "2026-09-16": "4",
+        "2026-10-28": "0",
+        "2026-12-09": "0"
+      }
+    },
+    "results": [
+      {
+        "avg_rate": 5.2903,
+        "month": "Jan 2026",
+        "outright": 94.7097
+      },
+      {
+        "avg_rate": 5.5268,
+        "month": "Feb 2026",
+        "outright": 94.4732
+      },
+      {
+        "avg_rate": 5.5081,
+        "month": "Mar 2026",
+        "outright": 94.4919
+      },
+      {
+        "avg_rate": 5.525,
+        "month": "Apr 2026",
+        "outright": 94.475
+      },
+      {
+        "avg_rate": 6.0242,
+        "month": "May 2026",
+        "outright": 93.9758
+      },
+      {
+        "avg_rate": 6.0,
+        "month": "Jun 2026",
+        "outright": 94.0
+      },
+      {
+        "avg_rate": 6.0081,
+        "month": "Jul 2026",
+        "outright": 93.9919
+      },
+      {
+        "avg_rate": 6.0242,
+        "month": "Aug 2026",
+        "outright": 93.9758
+      },
+      {
+        "avg_rate": 6.0187,
+        "month": "Sep 2026",
+        "outright": 93.9813
+      },
+      {
+        "avg_rate": 6.0561,
+        "month": "Oct 2026",
+        "outright": 93.9439
+      },
+      {
+        "avg_rate": 6.0567,
+        "month": "Nov 2026",
+        "outright": 93.9433
+      },
+      {
+        "avg_rate": 6.04,
+        "month": "Dec 2026",
+        "outright": 93.96
+      }
+    ],
+    "created": "2026-02-05T16:10:42.377465",
+    "updated": "2026-02-05T17:14:03.544894"
+  },
+  {
+    "id": 1,
+    "name": "Case 2",
+    "inputs": {
+      "effr": "5.25%",
+      "me": "25",
+      "qe": "210",
+      "ye": "0",
+      "meetings": {
+        "2026-01-28": "0",
+        "2026-03-18": "-25",
+        "2026-04-29": "50",
+        "2026-06-17": "0",
+        "2026-07-29": "0",
+        "2026-09-16": "0",
+        "2026-10-28": "0",
+        "2026-12-09": "25"
+      },
+      "name": "Case 2"
+    },
+    "results": [
+      {
+        "avg_rate": 5.2661,
+        "month": "Jan 2026",
+        "outright": 94.7339
+      },
+      {
+        "avg_rate": 5.2768,
+        "month": "Feb 2026",
+        "outright": 94.7232
+      },
+      {
+        "avg_rate": 5.221,
+        "month": "Mar 2026",
+        "outright": 94.779
+      },
+      {
+        "avg_rate": 5.025,
+        "month": "Apr 2026",
+        "outright": 94.975
+      },
+      {
+        "avg_rate": 5.5242,
+        "month": "May 2026",
+        "outright": 94.4758
+      },
+      {
+        "avg_rate": 5.57,
+        "month": "Jun 2026",
+        "outright": 94.43
+      },
+      {
+        "avg_rate": 5.5081,
+        "month": "Jul 2026",
+        "outright": 94.4919
+      },
+      {
+        "avg_rate": 5.5242,
+        "month": "Aug 2026",
+        "outright": 94.4758
+      },
+      {
+        "avg_rate": 5.57,
+        "month": "Sep 2026",
+        "outright": 94.43
+      },
+      {
+        "avg_rate": 5.5161,
+        "month": "Oct 2026",
+        "outright": 94.4839
+      },
+      {
+        "avg_rate": 5.5167,
+        "month": "Nov 2026",
+        "outright": 94.4833
+      },
+      {
+        "avg_rate": 5.6774,
+        "month": "Dec 2026",
+        "outright": 94.3226
+      }
+    ],
+    "created": "2026-02-05T16:11:23.844140"
+  },
+  {
+    "id": 2,
+    "name": "Case 3",
+    "inputs": {
+      "effr": "5.25%",
+      "me": "25",
+      "qe": "0",
+      "ye": "0",
+      "meetings": {
+        "2026-01-28": "25",
+        "2026-03-18": "0",
+        "2026-04-29": "50",
+        "2026-06-17": "35",
+        "2026-07-29": "0",
+        "2026-09-16": "40",
+        "2026-10-28": "0",
+        "2026-12-09": "0"
+      },
+      "name": "Case 3"
+    },
+    "results": [
+      {
+        "avg_rate": 5.2903,
+        "month": "Jan 2026",
+        "outright": 94.7097
+      },
+      {
+        "avg_rate": 5.5268,
+        "month": "Feb 2026",
+        "outright": 94.4732
+      },
+      {
+        "avg_rate": 5.5081,
+        "month": "Mar 2026",
+        "outright": 94.4919
+      },
+      {
+        "avg_rate": 5.525,
+        "month": "Apr 2026",
+        "outright": 94.475
+      },
+      {
+        "avg_rate": 6.0242,
+        "month": "May 2026",
+        "outright": 93.9758
+      },
+      {
+        "avg_rate": 6.1517,
+        "month": "Jun 2026",
+        "outright": 93.8483
+      },
+      {
+        "avg_rate": 6.3581,
+        "month": "Jul 2026",
+        "outright": 93.6419
+      },
+      {
+        "avg_rate": 6.3742,
+        "month": "Aug 2026",
+        "outright": 93.6258
+      },
+      {
+        "avg_rate": 6.5367,
+        "month": "Sep 2026",
+        "outright": 93.4633
+      },
+      {
+        "avg_rate": 6.7661,
+        "month": "Oct 2026",
+        "outright": 93.2339
+      },
+      {
+        "avg_rate": 6.7667,
+        "month": "Nov 2026",
+        "outright": 93.2333
+      },
+      {
+        "avg_rate": 6.75,
+        "month": "Dec 2026",
+        "outright": 93.25
+      }
+    ],
+    "created": "2026-02-05T16:56:53.758091"
+  },
+  {
+    "id": 3,
+    "name": "Case 4",
+    "inputs": {
+      "effr": "4.3%",
+      "me": "5",
+      "qe": "15",
+      "ye": "25",
+      "meetings": {
+        "2026-01-28": "25",
+        "2026-03-18": "0",
+        "2026-04-29": "0",
+        "2026-06-17": "0",
+        "2026-07-29": "-25",
+        "2026-09-16": "0",
+        "2026-10-28": "0",
+        "2026-12-09": "0"
+      },
+      "name": "Case 4"
+    },
+    "results": [
+      {
+        "avg_rate": 4.3274,
+        "month": "Jan 2026",
+        "outright": 95.6726
+      },
+      {
+        "avg_rate": 4.5554,
+        "month": "Feb 2026",
+        "outright": 95.4446
+      },
+      {
+        "avg_rate": 4.5565,
+        "month": "Mar 2026",
+        "outright": 95.4435
+      },
+      {
+        "avg_rate": 4.5517,
+        "month": "Apr 2026",
+        "outright": 95.4483
+      },
+      {
+        "avg_rate": 4.5548,
+        "month": "May 2026",
+        "outright": 95.4452
+      },
+      {
+        "avg_rate": 4.555,
+        "month": "Jun 2026",
+        "outright": 95.445
+      },
+      {
+        "avg_rate": 4.5355,
+        "month": "Jul 2026",
+        "outright": 95.4645
+      },
+      {
+        "avg_rate": 4.3048,
+        "month": "Aug 2026",
+        "outright": 95.6952
+      },
+      {
+        "avg_rate": 4.305,
+        "month": "Sep 2026",
+        "outright": 95.695
+      },
+      {
+        "avg_rate": 4.3032,
+        "month": "Oct 2026",
+        "outright": 95.6968
+      },
+      {
+        "avg_rate": 4.3033,
+        "month": "Nov 2026",
+        "outright": 95.6967
+      },
+      {
+        "avg_rate": 4.3081,
+        "month": "Dec 2026",
+        "outright": 95.6919
+      }
+    ],
+    "created": "2026-02-05T17:26:59.267143"
+  }
+]

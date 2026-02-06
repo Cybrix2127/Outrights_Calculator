@@ -1,0 +1,516 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>2026 Outrights Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- SIDEBAR OVERLAY (mobile) -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <nav class="sidebar-nav">
+    <div class="nav-header">
+      <div class="logo">
+        <i class="fas fa-chart-line"></i>
+        <span>Outrights</span>
+      </div>
+      <button id="toggle-nav" class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="nav-content">
+      <div class="nav-section">
+        <h3 class="nav-title">Main</h3>
+        <a href="#" class="nav-item active" data-tab="calculator">
+          <i class="fas fa-calculator"></i>
+          <span>Calculator</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="cases">
+          <i class="fas fa-folder"></i>
+          <span>Saved Cases</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="analytics">
+          <i class="fas fa-chart-bar"></i>
+          <span>Analytics</span>
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <h3 class="nav-title">Tools</h3>
+        <a href="#" class="nav-item" data-tab="comparison">
+          <i class="fas fa-code-branch"></i>
+          <span>Compare</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="export">
+          <i class="fas fa-download"></i>
+          <span>Export</span>
+        </a>
+      </div>
+
+      <div class="nav-footer">
+        <button id="toggle-dark" class="nav-item nav-btn" title="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <div class="header-left">
+        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div>
+          <h1>2026 Outrights Calculator</h1>
+          <p class="header-subtitle">Fixed Income Derivatives Dashboard</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-actions">
+          <button class="btn-icon-sm" title="Notifications">
+            <i class="fas fa-bell"></i>
+          </button>
+          <div class="profile-avatar">U</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT AREA -->
+    <div class="content-wrapper">
+      <!-- CALCULATOR TAB -->
+      <section id="calculator-tab" class="tab-content active">
+        <div class="tab-grid">
+          <!-- INPUT PANEL -->
+          <div class="panel input-panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-sliders-h"></i> Inputs</h2>
+              <button id="reset-inputs" class="btn-icon-xs" title="Reset to defaults">
+                <i class="fas fa-redo"></i>
+              </button>
+            </div>
+
+            <div class="panel-body">
+              <!-- EFFR Input -->
+              <div class="input-card">
+                <div class="input-card-header">
+                  <label class="form-label">EFFR Rate</label>
+                  <span class="badge badge-blue">Current</span>
+                </div>
+                <div class="input-card-body">
+                  <div class="input-with-controls">
+                    <input id="effr" class="bp-input form-input" value="5.25%" type="text" placeholder="e.g. 5.25%">
+                    <div class="bp-controls">
+                      <button type="button" class="bp-decr btn-control" title="Decrease by 0.25%">−</button>
+                      <button type="button" class="bp-incr btn-control" title="Increase by 0.25%">+</button>
+                    </div>
+                  </div>
+                  <p class="form-hint">Accepts: 5.25%, 525bps, or plain number</p>
+                </div>
+              </div>
+
+              <!-- Special Rates -->
+              <div class="input-card">
+                <div class="input-card-header">
+                  <label class="form-label">Special Rates (bps)</label>
+                  <span class="badge badge-purple">Adjustments</span>
+                </div>
+                <div class="input-card-body">
+                  <div class="rate-grid">
+                    <div class="rate-input">
+                      <label class="rate-label">Month End</label>
+                      <div class="input-with-controls">
+                        <input id="me" class="bp-input form-input" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rate-input">
+                      <label class="rate-label">Quarter End</label>
+                      <div class="input-with-controls">
+                        <input id="qe" class="bp-input form-input" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rate-input">
+                      <label class="rate-label">Year End</label>
+                      <div class="input-with-controls">
+                        <input id="ye" class="bp-input form-input" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FOMC Dates -->
+              <div class="input-card">
+                <div class="input-card-header">
+                  <label class="form-label">FOMC Meetings (bps change)</label>
+                  <span class="badge badge-green">8 Dates</span>
+                </div>
+                <div class="input-card-body">
+                  <div class="fomc-meeting-grid">
+                    <div class="meeting-input">
+                      <label>Jan 28</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-01-28" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Mar 18</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-03-18" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Apr 29</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-04-29" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Jun 17</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-06-17" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Jul 29</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-07-29" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Sep 16</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-09-16" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Oct 28</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-10-28" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="meeting-input">
+                      <label>Dec 9</label>
+                      <div class="input-with-controls">
+                        <input class="bp-input form-input" data-date="2026-12-09" value="0" type="text">
+                        <div class="bp-controls">
+                          <button type="button" class="bp-decr btn-control">−</button>
+                          <button type="button" class="bp-incr btn-control">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="panel-actions">
+                <button id="compute" class="btn btn-primary btn-block">
+                  <i class="fas fa-calculator"></i> Compute Results
+                </button>
+                <div class="action-row">
+                  <button id="save-case" class="btn btn-secondary">
+                    <i class="fas fa-save"></i> Save Case
+                  </button>
+                  <button id="update-case" class="btn btn-outline" disabled>
+                    <i class="fas fa-edit"></i> Update Case
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESULTS PANEL -->
+          <div class="panel results-panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-table"></i> Results</h2>
+              <div class="header-actions-mini">
+                <button id="download" class="btn btn-small btn-secondary" title="Download CSV">
+                  <i class="fas fa-file-csv"></i> CSV
+                </button>
+                <button id="download-excel" class="btn btn-small btn-secondary" title="Download Excel">
+                  <i class="fas fa-file-excel"></i> Excel
+                </button>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <div class="table-wrapper">
+                <table id="table" class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Month</th>
+                      <th>Avg Rate (%)</th>
+                      <th>Outright</th>
+                      <th>1M Spread</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="4" class="empty-table">Click "Compute Results" to generate data</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CASES TAB -->
+      <section id="cases-tab" class="tab-content">
+        <div class="cases-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-folder-open"></i> Saved Cases</h2>
+            </div>
+            <div class="panel-body">
+              <div id="case-list" class="case-list-modern"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-info-circle"></i> Case Details</h2>
+            </div>
+            <div class="panel-body">
+              <div id="case-details" class="case-details-view">
+                <div class="empty-state">
+                  <i class="fas fa-mouse-pointer"></i>
+                  <p>Select a case to view details</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPARISON TAB -->
+      <section id="comparison-tab" class="tab-content">
+        <div class="comparison-container">
+          <div class="comparison-sidebar">
+            <div class="panel">
+              <div class="panel-header">
+                <h2><i class="fas fa-check-square"></i> Select Cases</h2>
+              </div>
+              <div class="panel-body">
+                <div id="case-checkboxes" class="checkbox-list"></div>
+                <button id="compare-cases" class="btn btn-primary btn-block" style="margin-top:16px;">
+                  <i class="fas fa-chart-bar"></i> Compare Selected
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-content">
+            <div id="comparison" class="panel" style="display:none;">
+              <div class="panel-header">
+                <h2><i class="fas fa-columns"></i> Comparison Results</h2>
+              </div>
+              <div class="panel-body">
+                <div class="comparison-tabs">
+                  <button class="comparison-tab-btn active" data-comparison="outrights">
+                    Outrights
+                  </button>
+                  <button class="comparison-tab-btn" data-comparison="spreads">
+                    1M Spreads
+                  </button>
+                </div>
+
+                <div id="outrights-comparison" class="comparison-view" style="display:block;">
+                  <div class="table-wrapper">
+                    <table class="comparison-table" id="comparison-table">
+                      <thead>
+                        <tr id="comparison-header"></tr>
+                      </thead>
+                      <tbody id="comparison-body"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div id="spreads-comparison" class="comparison-view" style="display:none;">
+                  <div class="table-wrapper">
+                    <table class="comparison-table" id="comparison-spreads-table">
+                      <thead>
+                        <tr id="comparison-spreads-header"></tr>
+                      </thead>
+                      <tbody id="comparison-spreads-body"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="comparison-placeholder" class="panel">
+              <div class="panel-body">
+                <div class="empty-state">
+                  <i class="fas fa-code-branch"></i>
+                  <p>Select at least 2 cases and click Compare</p>
+                  <span>Comparison table will appear here</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYTICS TAB -->
+      <section id="analytics-tab" class="tab-content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-blue">
+              <i class="fas fa-percentage"></i>
+            </div>
+            <div class="stat-content">
+              <div id="stat-effr" class="stat-value">5.25%</div>
+              <div class="stat-label">Current EFFR</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-green">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="stat-content">
+              <div id="stat-cases" class="stat-value">0</div>
+              <div class="stat-label">Saved Cases</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-purple">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">8</div>
+              <div class="stat-label">FOMC Meetings</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon stat-icon-orange">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-content">
+              <div id="stat-updated" class="stat-value">—</div>
+              <div class="stat-label">Last Updated</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-grid">
+          <div class="chart-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-line"></i> Outrights Curve</h3>
+            </div>
+            <div class="chart-body">
+              <canvas id="outrights-chart"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-bar"></i> 1M Spreads</h3>
+            </div>
+            <div class="chart-body">
+              <canvas id="spreads-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPORT TAB -->
+      <section id="export-tab" class="tab-content">
+        <div class="export-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-download"></i> Export Data</h2>
+            </div>
+            <div class="panel-body">
+              <div class="export-options">
+                <div class="export-card" id="export-csv-card">
+                  <div class="export-icon">
+                    <i class="fas fa-file-csv"></i>
+                  </div>
+                  <div class="export-info">
+                    <h3>Download CSV</h3>
+                    <p>Export current results as a comma-separated values file</p>
+                  </div>
+                  <button class="btn btn-primary" onclick="document.getElementById('download').click()">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </div>
+
+                <div class="export-card" id="export-excel-card">
+                  <div class="export-icon">
+                    <i class="fas fa-file-excel"></i>
+                  </div>
+                  <div class="export-info">
+                    <h3>Download Excel</h3>
+                    <p>Export all saved cases as multi-sheet Excel workbook</p>
+                  </div>
+                  <button class="btn btn-primary" onclick="document.getElementById('download-excel').click()">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
